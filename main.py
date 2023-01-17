@@ -32,17 +32,13 @@ class NPC:
         print(self.Sagesse)
         print(self.Charisme)
         print(self.intelligence)
-kobold = NPC()
-kobold.nom = "Kobold"
-kobold.race = "Humano"
-kobold.espece = "Mage"
-kobold.pdv = random.randint(1, 12)
-kobold.profession = "Mage"
-kobold.classe_darmure = random.randint(1, 12)
-kobold.Force = 1
-kobold.Agilite = 1
-kobold.Constitution = 1
-kobold.Sagesse = 1
-kobold.Charisme = 1
-kobold.intelligence = 1
-kobold.AfficherCharacteristiques(kobold)
+class kobold(NPC):
+    def attaquer(cible):
+        return
+    def recevoir_dommage(dommage_subis):
+        return
+class hero(NPC):
+    def attaquer(cible):
+        return
+    def recevoir_dommage(dommage_subis):
+        return
