@@ -1,17 +1,20 @@
 import random
+d_list = []
+for i in range (4):
+    d_list.append(random.randint(1,6))
+d_list.sort()
+d_list.pop(0)
+dice = sum(d_list)
 
-d1 = random.randint(1, 6)
-d2 = random.randint(1, 6)
-d3 = random.randint(1, 6)
-d4 = random.randint(1, 6)
+
 class NPC:
     def __init__(self):
-        self.Force = 1
-        self.Agilite = 1
-        self.Constitution = 1
-        self.intelligence = 1
-        self.Sagesse = 1
-        self.Charisme = 1
+        self.Force = dice
+        self.Agilite = dice
+        self.Constitution = dice
+        self.intelligence = dice
+        self.Sagesse = dice
+        self.Charisme = dice
         self.classe_darmure = random.randint(1, 12)
         self.nom = ""
         self.race = ""
@@ -33,12 +36,34 @@ class NPC:
         print(self.Charisme)
         print(self.intelligence)
 class kobold(NPC):
-    def attaquer(cible):
-        return
-    def recevoir_dommage(dommage_subis):
-        return
+    def __init__(self):
+        super().__init__()
+    def attaquer(self, cible):
+        attaque = random.randint(1, 20)
+        if attaque == 20:
+            cible.recevoir_dommage(random.randint(1, 8))
+        elif attaque == 1:
+            cible.recevoir_dommage(0)
+        else:
+            if attaque >= cible.classe_darmure:
+                cible.recevoir_dommage(random.randint(1, 6))
+            else:
+                cible.recevoir_dommage(0)
+    def recevoir_dommage(self, dommage_subis):
+        pdv -= dommage_subis
 class hero(NPC):
-    def attaquer(cible):
-        return
-    def recevoir_dommage(dommage_subis):
-        return
+    def __init__(self):
+        super().__init__()
+    def attaquer(self, cible):
+        attaque = random.randint(1, 20)
+        if attaque == 20:
+            cible.recevoir_dommage(random.randint(1, 8))
+        elif attaque == 1:
+            cible.recevoir_dommage(0)
+        else:
+            if attaque >= cible.classe_darmure:
+                cible.recevoir_dommage(random.randint(1, 6))
+            else:
+                cible.recevoir_dommage(0)
+    def recevoir_dommage(self, dommage_subis):
+        pdv -= dommage_subis
