@@ -1,4 +1,6 @@
 import random
+
+#creer une liste pour trouver la valeur du "dice" et enlever le plus bas
 d_list = []
 for i in range (4):
     d_list.append(random.randint(1,6))
@@ -6,7 +8,7 @@ d_list.sort()
 d_list.pop(0)
 dice = sum(d_list)
 
-
+#creer la classe NPC
 class NPC:
     def __init__(self):
         self.Force = dice
@@ -35,13 +37,18 @@ class NPC:
         print(self.Sagesse)
         print(self.Charisme)
         print(self.intelligence)
+#creer kobold
 class kobold(NPC):
+    #initializer
     def __init__(self):
         super().__init__()
+        #attaquer
     def attaquer(self, cible):
         attaque = random.randint(1, 20)
+        #attaque critique
         if attaque == 20:
             cible.recevoir_dommage(random.randint(1, 8))
+            #attaque rate
         elif attaque == 1:
             cible.recevoir_dommage(0)
         else:
@@ -52,12 +59,16 @@ class kobold(NPC):
     def recevoir_dommage(self, dommage_subis):
         pdv -= dommage_subis
 class hero(NPC):
+    #initializer
     def __init__(self):
         super().__init__()
+        #attaquer
     def attaquer(self, cible):
         attaque = random.randint(1, 20)
+        #attaque critique
         if attaque == 20:
             cible.recevoir_dommage(random.randint(1, 8))
+            #attaque rate
         elif attaque == 1:
             cible.recevoir_dommage(0)
         else:
